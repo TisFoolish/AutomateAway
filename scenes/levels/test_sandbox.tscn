@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4pwg2h5r6in3"]
+
+[ext_resource type="PackedScene" uid="uid://53sauub5i5q4" path="res://scenes/ball.tscn" id="1_kkvkd"]
+[ext_resource type="PackedScene" uid="uid://dr4bkgpg7d21g" path="res://scenes/devices/vent.tscn" id="2_oe312"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_acgq4"]
+size = Vector2(1167, 20)
+
+[node name="Test Sandbox" type="Node2D"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(578, 640)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_acgq4")
+
+[node name="Ball" parent="." instance=ExtResource("1_kkvkd")]
+position = Vector2(211, 582)
+
+[node name="Vent" parent="." instance=ExtResource("2_oe312")]
+position = Vector2(100, 570)
+rotation = 0.215837
+
+[node name="Vent2" parent="." instance=ExtResource("2_oe312")]
+position = Vector2(1035, 597)
+rotation = -3.09977
+current_power = 80.0
