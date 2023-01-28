@@ -1,0 +1,136 @@
+[gd_scene load_steps=16 format=3 uid="uid://lkvl5lp7cihf"]
+
+[ext_resource type="Texture2D" uid="uid://b6jiqchssyypb" path="res://assets/graphics/background/bookshelf.png" id="1_m31pn"]
+[ext_resource type="Texture2D" uid="uid://dvgmxw136n56y" path="res://assets/graphics/background/wallpaper_background.png" id="1_tqu5p"]
+[ext_resource type="Texture2D" uid="uid://dlufc58owh8w7" path="res://assets/graphics/background/wall_interior_1.png" id="2_aads3"]
+[ext_resource type="Texture2D" uid="uid://dxduusmui00rv" path="res://assets/graphics/background/floor_texture.png" id="2_fg6ix"]
+[ext_resource type="PackedScene" uid="uid://byppv7n1dx6eo" path="res://scenes/Balls/tire.tscn" id="2_gqpjp"]
+[ext_resource type="Texture2D" uid="uid://d1og8haubtocu" path="res://assets/graphics/background/floorplank1.png" id="3_4c4nf"]
+[ext_resource type="Texture2D" uid="uid://dsxwckucoej58" path="res://assets/graphics/background/wall_interior_texture.png" id="3_o0imm"]
+[ext_resource type="Texture2D" uid="uid://gervhslprava" path="res://assets/graphics/background/wall_interior_2.png" id="4_mfifb"]
+[ext_resource type="Texture2D" uid="uid://b4wktd3apjbod" path="res://assets/graphics/background/floorplank2.png" id="7_smg8g"]
+[ext_resource type="Texture2D" uid="uid://c43mwprfgnjws" path="res://assets/graphics/background/floorplank3.png" id="8_dinxp"]
+[ext_resource type="Texture2D" uid="uid://1ackac6ed5kv" path="res://assets/graphics/background/table.png" id="11_p514o"]
+[ext_resource type="Texture2D" uid="uid://drpwx15hv5wtj" path="res://assets/graphics/background/plant.png" id="12_nqds0"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u5kuv"]
+size = Vector2(2224.38, 107.527)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y073q"]
+size = Vector2(1246, 102)
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w1awh"]
+resource_local_to_scene = true
+bounce = 0.7
+
+[node name="Bedroom" type="Node2D"]
+
+[node name="Wallpaper Texture" type="TextureRect" parent="."]
+offset_right = 1150.0
+offset_bottom = 643.0
+texture = ExtResource("1_tqu5p")
+stretch_mode = 1
+
+[node name="Floor Texture" type="TextureRect" parent="."]
+offset_left = 47.0
+offset_top = 496.0
+offset_right = 1174.0
+offset_bottom = 614.0
+texture = ExtResource("2_fg6ix")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Wall Interior Texture2" type="TextureRect" parent="."]
+offset_left = -59.0
+offset_top = 6.0
+offset_right = 46.0
+offset_bottom = 806.0
+texture = ExtResource("3_o0imm")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Wall Interior Texture" type="TextureRect" parent="."]
+offset_left = -10.0
+offset_top = 607.0
+offset_right = 1184.0
+offset_bottom = 807.0
+texture = ExtResource("3_o0imm")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Floor Slice 2" type="StaticBody2D" parent="."]
+position = Vector2(976, 602)
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="Floor Slice 2" type="Sprite2D" parent="Floor Slice 2"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_mfifb")
+
+[node name="FloorCollider" type="CollisionShape2D" parent="Floor Slice 2"]
+visible = false
+position = Vector2(-10.3921, 5.66669)
+scale = Vector2(1.178, 1.178)
+shape = SubResource("RectangleShape2D_u5kuv")
+
+[node name="Floor Slice 1" type="StaticBody2D" parent="."]
+position = Vector2(370, 604)
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="Floor Slice 1" type="Sprite2D" parent="Floor Slice 1"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_aads3")
+
+[node name="FloorCollider" type="CollisionShape2D" parent="Floor Slice 1"]
+position = Vector2(457.839, -23)
+scale = Vector2(1.178, 1.178)
+shape = SubResource("RectangleShape2D_u5kuv")
+
+[node name="Wall Slice 1" type="StaticBody2D" parent="."]
+position = Vector2(47, 252)
+rotation = 1.5708
+scale = Vector2(0.5, 0.5)
+metadata/_edit_group_ = true
+
+[node name="Wall Slice 1" type="Sprite2D" parent="Wall Slice 1"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_mfifb")
+
+[node name="Wall Collider" type="CollisionShape2D" parent="Wall Slice 1"]
+position = Vector2(61, 19)
+shape = SubResource("RectangleShape2D_y073q")
+
+[node name="FloorPlank1" type="Sprite2D" parent="."]
+position = Vector2(566, 552)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("3_4c4nf")
+
+[node name="FloorPlank2" type="Sprite2D" parent="."]
+position = Vector2(679, 523)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("7_smg8g")
+
+[node name="FloorPlank3" type="Sprite2D" parent="."]
+position = Vector2(293, 525)
+scale = Vector2(0.12, 0.12)
+texture = ExtResource("8_dinxp")
+
+[node name="Bookshelf" type="Sprite2D" parent="."]
+position = Vector2(979, 356)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_m31pn")
+
+[node name="tire" parent="." instance=ExtResource("2_gqpjp")]
+position = Vector2(709, 107)
+physics_material_override = SubResource("PhysicsMaterial_w1awh")
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(149.75, 486.475)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("11_p514o")
+
+[node name="Plant" type="Sprite2D" parent="."]
+position = Vector2(143.75, 417.475)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("12_nqds0")
