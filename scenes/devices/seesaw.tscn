@@ -1,0 +1,34 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmmdf8kbark8k"]
+
+[ext_resource type="Texture2D" uid="uid://ctocbde6frca3" path="res://assets/graphics/interactables/seesaw_base.png" id="1_v8aj4"]
+[ext_resource type="Texture2D" uid="uid://c7aov5kwu267a" path="res://assets/graphics/interactables/seesaw_seat.png" id="2_1bmlv"]
+
+[node name="Seesaw" type="Node2D"]
+
+[node name="polygons" type="Node2D" parent="."]
+
+[node name="base" type="Polygon2D" parent="polygons"]
+position = Vector2(491, 206)
+texture = ExtResource("1_v8aj4")
+polygon = PackedVector2Array(171.615, 128.646, 178.082, 13.1148, 188.738, 0, 217.426, -0.819672, 227.262, 6.55739, 233, 142.623, 229.948, 246.615, 388.738, 286.885, 383.594, 311.979, 256.771, 341.803, 97.7543, 346.721, 1.03299, 322.131, 9.22971, 296.721, 156.771, 244.262)
+uv = PackedVector2Array(172.131, 95.082, 177.869, 13.1148, 188.525, 0, 217.213, -0.819672, 227.049, 6.55739, 232.787, 142.623, 229.508, 244.262, 388.525, 286.885, 390.164, 302.459, 377.869, 313.115, 256.557, 341.803, 97.541, 346.721, 0.819672, 322.131, 9.01639, 296.721, 156.557, 244.262)
+
+[node name="seat" type="Polygon2D" parent="polygons"]
+texture = ExtResource("2_1bmlv")
+skeleton = NodePath("../../Skeleton2D")
+polygon = PackedVector2Array(296.121, 112.19, 342.241, 6.37069, 363.362, 4.86207, 374.353, 17.3621, 349.353, 70.3793, 356.681, 105.724, 720, 90, 1067.06, 82.6588, 1028.69, 25.0492, 1036.07, 3.7377, 1056.08, 2.26667, 1108.24, 83.6392, 1327.87, 97.1803, 1440.05, 238.284, 1409.48, 326.673, 1259.72, 311.981, 720, 300, 379.508, 312.754, 35.2459, 329.148, 2.45901, 266.033, 94.2623, 132.426)
+uv = PackedVector2Array(293.443, 110.295, 337.705, 9.4754, 363.934, 1.27869, 374.59, 23.4098, 350, 67.6721, 359.016, 103.738, 650, 88.9836, 1064.75, 82.4262, 1028.69, 25.0492, 1036.07, 3.7377, 1063.93, 6.19672, 1107.38, 79.1476, 1327.87, 97.1803, 1442.62, 238.164, 1410.66, 322.59, 1267.21, 310.295, 745.902, 298.82, 379.508, 312.754, 35.2459, 329.148, 2.45901, 266.033, 89.3443, 139.803)
+bones = ["Base", PackedFloat32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0), "Base/Seat", PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1)]
+
+[node name="Skeleton2D" type="Skeleton2D" parent="."]
+
+[node name="Base" type="Bone2D" parent="Skeleton2D"]
+position = Vector2(689, 505)
+rest = Transform2D(1, 0, 0, 1, 689, 505)
+
+[node name="Seat" type="Bone2D" parent="Skeleton2D/Base"]
+position = Vector2(0, -288)
+rotation = -0.350403
+rest = Transform2D(1, 0, 0, 1, 0, -288)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
