@@ -1,0 +1,14 @@
+[gd_scene load_steps=2 format=3 uid="uid://powg2jkcbvsb"]
+
+[ext_resource type="Texture2D" uid="uid://b8ae34ws4tmli" path="res://assets/graphics/interactables/football.png" id="1_wj0wo"]
+
+[node name="football" type="RigidBody2D"]
+collision_layer = 2
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.099, 0.099)
+texture = ExtResource("1_wj0wo")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
+scale = Vector2(0.099, 0.099)
+polygon = PackedVector2Array(262.626, -272.727, 292.929, -222.222, 300, -120.2, 262.626, 10.101, 202.02, 121.212, 141.414, 202.02, 20.202, 272.727, -93.3, 295.5, -212.121, 292.929, -252.525, 272.727, -282.828, 242.424, -300, 200.3, -292.929, 101.01, -262.626, -10.101, -171.717, -151.515, -111.111, -202.02, 0, -262.626, 121.212, -292.929, 201.5, -295.5)

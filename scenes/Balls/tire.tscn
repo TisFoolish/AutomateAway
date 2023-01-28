@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://byppv7n1dx6eo"]
+
+[ext_resource type="Texture2D" uid="uid://sfgosixlsngi" path="res://assets/graphics/interactables/tire.png" id="1_e4o0y"]
+[ext_resource type="PhysicsMaterial" uid="uid://dueorge2x14k" path="res://scenes/Balls/tire.tres" id="1_pn2dm"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_7t0ar"]
+radius = 53.0094
+
+[node name="tire" type="RigidBody2D"]
+collision_layer = 2
+physics_material_override = ExtResource("1_pn2dm")
+metadata/_edit_group_ = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.127, 0.127)
+texture = ExtResource("1_e4o0y")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_7t0ar")
