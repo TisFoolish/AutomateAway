@@ -11,8 +11,6 @@ func _ready():
 	_on_slider_value_changed(current_power)
 	
 	set_gravity_direction(Vector2(cos(rotation), sin(rotation)))
-	print(name, " ", Vector2(cos(rotation), sin(rotation)))
-	print(gravity_direction)
 	pass # Replace with function body.
 
 

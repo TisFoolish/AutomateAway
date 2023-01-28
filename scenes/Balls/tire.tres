@@ -1,0 +1,5 @@
+[gd_resource type="PhysicsMaterial" format=3 uid="uid://dueorge2x14k"]
+
+[resource]
+resource_local_to_scene = true
+bounce = 0.7
