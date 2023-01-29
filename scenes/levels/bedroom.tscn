@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://lkvl5lp7cihf"]
+[gd_scene load_steps=17 format=3 uid="uid://lkvl5lp7cihf"]
 
 [ext_resource type="Texture2D" uid="uid://b6jiqchssyypb" path="res://assets/graphics/background/bookshelf.png" id="1_m31pn"]
 [ext_resource type="Texture2D" uid="uid://dvgmxw136n56y" path="res://assets/graphics/background/wallpaper_background.png" id="1_tqu5p"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://c43mwprfgnjws" path="res://assets/graphics/background/floorplank3.png" id="8_dinxp"]
 [ext_resource type="Texture2D" uid="uid://1ackac6ed5kv" path="res://assets/graphics/background/table.png" id="11_p514o"]
 [ext_resource type="Texture2D" uid="uid://drpwx15hv5wtj" path="res://assets/graphics/background/plant.png" id="12_nqds0"]
+[ext_resource type="PackedScene" uid="uid://l24s4r1lc1fu" path="res://scenes/panning_cam.tscn" id="13_37m8n"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_u5kuv"]
 size = Vector2(2224.38, 107.527)
@@ -19,7 +20,7 @@ size = Vector2(2224.38, 107.527)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y073q"]
 size = Vector2(1246, 102)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w1awh"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_tgc3r"]
 resource_local_to_scene = true
 bounce = 0.7
 
@@ -123,7 +124,7 @@ texture = ExtResource("1_m31pn")
 
 [node name="tire" parent="." instance=ExtResource("2_gqpjp")]
 position = Vector2(709, 107)
-physics_material_override = SubResource("PhysicsMaterial_w1awh")
+physics_material_override = SubResource("PhysicsMaterial_tgc3r")
 
 [node name="Table" type="Sprite2D" parent="."]
 position = Vector2(149.75, 486.475)
@@ -134,3 +135,6 @@ texture = ExtResource("11_p514o")
 position = Vector2(143.75, 417.475)
 scale = Vector2(0.15, 0.15)
 texture = ExtResource("12_nqds0")
+
+[node name="Panning_Cam" parent="." instance=ExtResource("13_37m8n")]
+current = true
