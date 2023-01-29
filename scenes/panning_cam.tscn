@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://l24s4r1lc1fu"]
+
+[ext_resource type="Script" path="res://scripts/PanningCamera.gd" id="1_yxpq7"]
+
+[node name="Panning_Cam" type="Camera2D"]
+position = Vector2(576, 327)
+script = ExtResource("1_yxpq7")
