@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://8xaeb3acoh6l"
-path="res://.godot/imported/bed.png-4ea7072157f525f249d69b1adf7e4571.ctex"
+uid="uid://bwt4oja0iks8c"
+path="res://.godot/imported/curtains.png-eb9641419f1df251e075fdf0b743bca4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/graphics/background/bed.png"
-dest_files=["res://.godot/imported/bed.png-4ea7072157f525f249d69b1adf7e4571.ctex"]
+source_file="res://assets/graphics/background/curtains.png"
+dest_files=["res://.godot/imported/curtains.png-eb9641419f1df251e075fdf0b743bca4.ctex"]
 
 [params]
 
