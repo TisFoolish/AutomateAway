@@ -1,0 +1,183 @@
+[gd_scene load_steps=15 format=3 uid="uid://tafp3ideegi"]
+
+[ext_resource type="Script" path="res://scripts/drawer.gd" id="1_hi6i4"]
+[ext_resource type="Texture2D" uid="uid://cq0fxq5ajvjmd" path="res://assets/graphics/interactables/drawer.png" id="2_au55w"]
+[ext_resource type="PackedScene" uid="uid://dr4bkgpg7d21g" path="res://scenes/junk/vent.tscn" id="2_dpstu"]
+[ext_resource type="PackedScene" uid="uid://b3w1kdcpmgmqc" path="res://scenes/junk/test/ballo.tscn" id="3_0lx1s"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6upb4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_cajkp"]
+radius = 48.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8y2r3"]
+size = Vector2(210, 695)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jcv2j"]
+size = Vector2(244, 666)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ga4qb"]
+size = Vector2(1450, 579)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_333j7"]
+size = Vector2(1448, 792)
+
+[sub_resource type="Animation" id="Animation_wqmko"]
+resource_name = "Close"
+length = 0.65
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Contents:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.45, 0.65),
+"transitions": PackedFloat32Array(2.21914, 1, 1, 2.92818),
+"update": 0,
+"values": [Vector2(0, 968), Vector2(0, -120), Vector2(0, 80), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rld08"]
+resource_name = "Open"
+length = 0.9
+step = 0.05
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Contents:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.7, 0.9),
+"transitions": PackedFloat32Array(3.24901, 1, 1, 1, 0.574349),
+"update": 0,
+"values": [Vector2(0, 290), Vector2(0, 1011), Vector2(0, 946), Vector2(0, 988), Vector2(0, 968)]
+}
+
+[sub_resource type="Animation" id="Animation_vjobj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Contents:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_q5656"]
+_data = {
+"Close": SubResource("Animation_wqmko"),
+"Open": SubResource("Animation_rld08"),
+"RESET": SubResource("Animation_vjobj")
+}
+
+[node name="Drawer" type="Node2D"]
+position = Vector2(821, 800)
+script = ExtResource("1_hi6i4")
+junk = [ExtResource("3_0lx1s"), ExtResource("2_dpstu")]
+
+[node name="Contents" type="Node2D" parent="."]
+
+[node name="SpawnPoint" type="Marker2D" parent="Contents"]
+position = Vector2(-455, -455)
+
+[node name="RigidBody2D" type="RigidBody2D" parent="Contents/SpawnPoint"]
+process_mode = 4
+collision_layer = 8
+collision_mask = 12
+mass = 1000.0
+inertia = 1000.0
+physics_material_override = SubResource("PhysicsMaterial_6upb4")
+gravity_scale = 0.0
+continuous_cd = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/SpawnPoint/RigidBody2D"]
+shape = SubResource("CircleShape2D_cajkp")
+
+[node name="Colliders" type="Node2D" parent="Contents"]
+position = Vector2(0, -512)
+
+[node name="Left Wall" type="CharacterBody2D" parent="Contents/Colliders"]
+position = Vector2(-570, -202)
+collision_layer = 4
+collision_mask = 8
+safe_margin = 0.001
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Colliders/Left Wall"]
+position = Vector2(-45, 37.5)
+shape = SubResource("RectangleShape2D_8y2r3")
+
+[node name="Right Wall" type="CharacterBody2D" parent="Contents/Colliders"]
+position = Vector2(448, -202)
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Colliders/Right Wall"]
+position = Vector2(160, 23)
+shape = SubResource("RectangleShape2D_jcv2j")
+
+[node name="Back Wall" type="CharacterBody2D" parent="Contents/Colliders"]
+position = Vector2(3, -480)
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Colliders/Back Wall"]
+position = Vector2(2, -282.5)
+shape = SubResource("RectangleShape2D_ga4qb")
+
+[node name="Front Wall" type="CharacterBody2D" parent="Contents/Colliders"]
+show_behind_parent = true
+position = Vector2(3, 115)
+collision_layer = 4
+collision_mask = 8
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Contents/Colliders/Front Wall"]
+position = Vector2(3, 395)
+shape = SubResource("RectangleShape2D_333j7")
+
+[node name="Sprite2D" type="Sprite2D" parent="Contents"]
+show_behind_parent = true
+position = Vector2(0, -632)
+scale = Vector2(0.576, 0.576)
+texture = ExtResource("2_au55w")
+
+[node name="Button" type="Button" parent="Contents"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -210.0
+offset_top = -291.78
+offset_right = 210.0
+offset_bottom = -241.78
+grow_horizontal = 2
+pivot_offset = Vector2(210, 0)
+flat = true
+icon_alignment = 1
+
+[node name="Button2" type="Button" parent="Contents"]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -210.0
+offset_top = -1072.0
+offset_right = 210.0
+offset_bottom = -1022.0
+grow_horizontal = 2
+pivot_offset = Vector2(210, 0)
+flat = true
+icon_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_q5656")
+}
+
+[connection signal="pressed" from="Contents/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="Contents/Button2" to="." method="_on_button_pressed"]

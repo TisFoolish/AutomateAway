@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://lkvl5lp7cihf"]
+[gd_scene load_steps=16 format=3 uid="uid://bp87dyyftuu10"]
 
 [ext_resource type="Texture2D" uid="uid://b6jiqchssyypb" path="res://assets/graphics/background/bookshelf.png" id="1_m31pn"]
 [ext_resource type="Texture2D" uid="uid://dvgmxw136n56y" path="res://assets/graphics/background/wallpaper_background.png" id="1_tqu5p"]
@@ -19,7 +19,7 @@ size = Vector2(2224.38, 107.527)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y073q"]
 size = Vector2(1246, 102)
 
-[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_w1awh"]
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_y7ej6"]
 resource_local_to_scene = true
 bounce = 0.7
 
@@ -123,7 +123,7 @@ texture = ExtResource("1_m31pn")
 
 [node name="tire" parent="." instance=ExtResource("2_gqpjp")]
 position = Vector2(709, 107)
-physics_material_override = SubResource("PhysicsMaterial_w1awh")
+physics_material_override = SubResource("PhysicsMaterial_y7ej6")
 
 [node name="Table" type="Sprite2D" parent="."]
 position = Vector2(149.75, 486.475)
